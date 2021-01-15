@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   scrollviewItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'orange',
+    backgroundColor: COLORS.green,
     alignSelf: 'center',
     padding: GUIDELINES.paddingSM1,
     margin: GUIDELINES.marginSM,
@@ -71,10 +71,12 @@ export const styles = StyleSheet.create({
   },
   listEmptyView: {
     paddingTop: GUIDELINES.paddingXXL,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   emptyText: {
     fontStyle: 'italic',
     fontSize: GUIDELINES.fontSizeLG,
-    color: COLORS.grey,
+    color: COLORS.grey2,
   },
 });

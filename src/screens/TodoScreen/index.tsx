@@ -19,6 +19,7 @@ import {
 } from '../../data/action/actions';
 import {CustomButton} from '../../elements/Button/index';
 import moment from 'moment';
+import {firebaseApp} from '../../services/index';
 
 export const Todo = () => {
   const [getText, setText] = useState('');
@@ -26,6 +27,13 @@ export const Todo = () => {
   const dispatch = useDispatch();
   const todoList = useTodoList();
   const addItem = useCallback(() => {
+    const key = firebaseApp.database().ref('/lists').push().key;
+    firebaseApp.database().ref('/lists').child(key).set({
+      text: getText,
+      priority: 0,
+      createdDate: Date.now(),
+      id: Math.random().toString(),
+    });
     dispatch(
       addTodoList({
         text: getText,
@@ -40,6 +48,7 @@ export const Todo = () => {
 
   const removeItem = useCallback(
     (item) => {
+      console.log('item', item);
       Alert.alert(`Delete "${item.text}" ?`, '', [
         {
           text: 'No',
@@ -81,7 +90,7 @@ export const Todo = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>todos</Text>
+      <Text style={styles.title}>TODO LIST</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
@@ -125,7 +134,7 @@ export const Todo = () => {
         )}
         ListEmptyComponent={() => (
           <View style={styles.listEmptyView}>
-            <Text style={styles.emptyText}>No ToDo Items! Hurray!</Text>
+            <Text style={styles.emptyText}>No ToDo Items!</Text>
           </View>
         )}
       />
