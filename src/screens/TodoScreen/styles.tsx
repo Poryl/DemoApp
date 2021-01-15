@@ -40,11 +40,11 @@ export const styles = StyleSheet.create({
   },
   scrollviewItemContent: {
     flexDirection: 'row',
-    flex: 1
+    flex: 1,
   },
   scrollviewItemContentTitleAndDate: {
     flex: 1,
-    marginLeft: 10
+    marginLeft: GUIDELINES.marginSM2,
   },
   title: {
     fontSize: GUIDELINES.fontSizeXXXL,
@@ -68,5 +68,13 @@ export const styles = StyleSheet.create({
     width: '70%',
     fontSize: GUIDELINES.fontSizeSM,
     padding: GUIDELINES.paddingSM1,
+  },
+  listEmptyView: {
+    paddingTop: GUIDELINES.paddingXXL,
+  },
+  emptyText: {
+    fontStyle: 'italic',
+    fontSize: GUIDELINES.fontSizeLG,
+    color: COLORS.grey,
   },
 });

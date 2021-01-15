@@ -1,8 +1,8 @@
 export const TODO_LIST = [
   {
-    text: '',
+    text: 'Tuan',
     id: 1234,
-    createdDate: 1243123,
+    createdDate: new Date(),
     priority: 0,
   },
 ];

@@ -4,7 +4,6 @@ import {
   Text,
   View,
   TextInput,
-  ScrollView,
   TouchableOpacity,
   Keyboard,
   FlatList,
@@ -37,7 +36,7 @@ export const Todo = () => {
     );
     setText('');
     Keyboard.dismiss();
-  }, [getText]);
+  }, [dispatch, getText]);
 
   const removeItem = useCallback(
     (item) => {
@@ -55,7 +54,7 @@ export const Todo = () => {
         },
       ]);
     },
-    [todoList],
+    [dispatch],
   );
 
   useEffect(() => {
@@ -66,10 +65,9 @@ export const Todo = () => {
 
   useEffect(() => {
     dispatch(loadTodoList());
-  }, []);
+  }, [dispatch]);
 
   const updateItem = () => {
-    console.log('updateItem', editingItem);
     dispatch(
       updateTodoList({
         id: editingItem.id,
@@ -126,10 +124,8 @@ export const Todo = () => {
           </TouchableOpacity>
         )}
         ListEmptyComponent={() => (
-          <View style={{paddingTop: 30}}>
-            <Text style={{fontStyle: 'italic', fontSize: 20, color: 'grey'}}>
-              No ToDo Items! Hurray!
-            </Text>
+          <View style={styles.listEmptyView}>
+            <Text style={styles.emptyText}>No ToDo Items! Hurray!</Text>
           </View>
         )}
       />

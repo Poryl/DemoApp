@@ -4,10 +4,7 @@ import {DataActionNames} from '../action/action.types';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-// ...
-
-// Our worker Saga: will perform the async increment task
-export function* incrementAsync() {
+export function* middlewareAsync() {
   yield delay(2000);
   yield put({
     type: DataActionNames.SET_TODO_LIST,
@@ -15,11 +12,11 @@ export function* incrementAsync() {
   });
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
-export function* watchIncrementAsync() {
-  yield takeEvery(DataActionNames.LOAD_TODO_LIST, incrementAsync);
+// Our watcher Saga: spawn a new middlewareAsync task on each INCREMENT_ASYNC
+export function* watchMiddlewareAsync() {
+  yield takeEvery(DataActionNames.LOAD_TODO_LIST, middlewareAsync);
 }
 
 export default function* rootSaga() {
-  yield all([watchIncrementAsync()]);
+  yield all([watchMiddlewareAsync()]);
 }
