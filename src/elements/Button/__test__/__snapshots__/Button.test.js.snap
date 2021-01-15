@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render Button 1`] = `
+<ForwardRef
+  activeOpacity={0.5}
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#0178FF",
+        "borderRadius": 50,
+        "padding": 10,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+        }
+      }
+    >
+      TEST
+    </Text>
+  </View>
+</ForwardRef>
+`;
+
+exports[`Button should render Button with disable state 1`] = `
+<ForwardRef
+  activeOpacity={0.5}
+  disabled={true}
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#EDEDED",
+        "borderRadius": 50,
+        "padding": 10,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+        }
+      }
+    >
+      TEST
+    </Text>
+  </View>
+</ForwardRef>
+`;
