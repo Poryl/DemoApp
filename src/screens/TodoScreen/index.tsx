@@ -48,7 +48,6 @@ export const Todo = () => {
 
   const removeItem = useCallback(
     (item) => {
-      console.log('item', item);
       Alert.alert(`Delete "${item.text}" ?`, '', [
         {
           text: 'No',
@@ -110,7 +109,7 @@ export const Todo = () => {
       <FlatList
         style={styles.scrollview}
         data={todoList}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index): string => String(index)}
         renderItem={({item, index}) => (
           <TouchableOpacity
             activeOpacity={0.7}
